@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 470974862}
   - component: {fileID: 470974861}
   - component: {fileID: 470974860}
+  - component: {fileID: 470974863}
   m_Layer: 5
   m_Name: ThunderImg
   m_TagString: Untagged
@@ -526,6 +527,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470974858}
   m_CullTransparentMesh: 1
+--- !u!114 &470974863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470974858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f68c0fbf200cfb4aa5431328ed5a08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 470974860}
+  delayBeforeStart: 3
+  duration: 4.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
