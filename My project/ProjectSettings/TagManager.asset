@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Circle
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -48,9 +48,9 @@ TagManager:
   - name: Object
     uniqueID: 3887075583
     locked: 0
-  - name: Player
-    uniqueID: 3671039553
-    locked: 0
   - name: GUI
     uniqueID: 171454131
+    locked: 0
+  - name: Player
+    uniqueID: 3671039553
     locked: 0
