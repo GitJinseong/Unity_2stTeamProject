@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bulletPrefab = default;
     public AudioClip deathClip;
     private float jumpForce = 300f;
     private int jumpCount = 0;
+    private int bulletCount = 0;
+    private float bulletDelay = 0.2f;
     private bool isGrounded = false;
     private bool isDead = false;
 
@@ -25,7 +28,6 @@ public class PlayerController : MonoBehaviour
         GFunc.Assert(animator != null);
         GFunc.Assert(playerAudio != null);
 
-        //GameManager.instance.LinkPlayer(gameObject);
     }
 
     // Update is called once per frame
@@ -46,25 +48,24 @@ public class PlayerController : MonoBehaviour
             playerRigid.velocity = playerRigid.velocity * 0.5f;
         }
 
+        if (Input.GetMouseButtonDown(1) && bulletCount == 0)
+        {
+            bulletCount += 1;
+            GameObject bullet = Instantiate(bulletPrefab, transform.position,
+                transform.rotation, transform);
+            Debug.Log("¤±");
+            StartCoroutine(Shoot());
+            //playerAudio.Play();
+        }
+
         //Jump();
 
         animator.SetBool("Ground", isGrounded);
     }
-
-    public void Jump()
+    public IEnumerator Shoot()
     {
-
-        if (jumpCount < 2)
-        {
-            jumpCount += 1;
-            playerRigid.velocity = Vector2.zero;
-            playerRigid.AddForce(new Vector2(0, jumpForce));
-            playerAudio.Play();
-        }
-        else if (0 < playerRigid.velocity.y)
-        {
-            playerRigid.velocity = playerRigid.velocity * 0.5f;
-        }
+        yield return new WaitForSeconds(bulletDelay);
+        bulletCount = 0;
     }
 
     private void Die()
@@ -76,7 +77,6 @@ public class PlayerController : MonoBehaviour
         playerRigid.velocity = Vector2.zero;
         isDead = true;
 
-        //GameManager.instance.OnPlayerDead();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

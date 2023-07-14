@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MitterCheck : MonoBehaviour
+public class PlayerMitterCheck : MonoBehaviour
 {
     public TMP_Text mitterText;
     public int mitter = 999;

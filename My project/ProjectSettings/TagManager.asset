@@ -54,3 +54,6 @@ TagManager:
   - name: Player
     uniqueID: 3671039553
     locked: 0
+  - name: Skill
+    uniqueID: 749757703
+    locked: 0
