@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     Rigidbody2D rigid = default;
     public float speed = 20f;
@@ -13,7 +13,7 @@ public class PlayerBullet : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = transform.right * speed;
+        rigid.velocity = Vector2.left * speed;
         animator = GetComponent<Animator>();
 
         Destroy(gameObject, 3f);
@@ -21,7 +21,7 @@ public class PlayerBullet : MonoBehaviour
 
     public IEnumerator Hit(Renderer renderer, Transform transform)
     {
-        HitEffect.instance.RunSetEnemyHitEffect(renderer, transform);
+        HitEffect.instance.RunSetPlayerHitEffect(renderer, transform);
         animator.SetTrigger("Hit");
         rigid.velocity = Vector2.zero;
         EnemyMitterCheck.instance.Hit();
@@ -31,12 +31,12 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Enemy"))
+        if (collision.tag.Equals("Player"))
         {
             Renderer renderer_ = collision.GetComponent<Renderer>();
             Transform transform_ = collision.GetComponent<Transform>();
             StartCoroutine(Hit(renderer_, transform_));
-            Debug.Log("몬스터 피격");
+            Debug.Log("플레이어 피격");
         }
     }
 }

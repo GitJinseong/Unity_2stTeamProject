@@ -14,12 +14,17 @@ public class PlayerMitterCheck : MonoBehaviour
         StartCoroutine(CheckMitters());
     }
 
+    private void Update()
+    {
+        if (PlayerController.instance.isDead) { mitterText.text = "444"; }
+    }
     private IEnumerator CheckMitters()
     {
         while (mitter > 0) 
         {
             yield return new WaitForSeconds(delay);
             mitter--;
+            if (PlayerController.instance.isDead) { continue; }
             mitterText.text = mitter.ToString();
         }
     }
