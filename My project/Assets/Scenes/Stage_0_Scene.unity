@@ -1192,7 +1192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 480998445527961754, guid: e83100b951b1bab448f7ccc6a63bafaf, type: 3}
-  deathClip: {fileID: 8300000, guid: b7033dc7d1b445b4585b08ce571fb73c, type: 3}
+  deathClip: {fileID: 0}
+  isDead: 0
 --- !u!82 &728923292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1649,6 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3004738196843872291, guid: 787663fb2204ffc418e4361d925eb0cf, type: 3}
+  targetBulletPrefab: {fileID: 8899048111661989509, guid: fd64a2c226bb1a94b863c0b25e2e203e, type: 3}
 --- !u!1 &978795459
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,14 @@ public class PlayerController : MonoBehaviour
         gameObject.tag = "Untagged";
 
         GameManager.instance.SetPlayerDie();
+
+        StartCoroutine(GameOver());
+    }
+    
+    private IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3f);
+        GFunc.LoadScene("GameOverScene");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

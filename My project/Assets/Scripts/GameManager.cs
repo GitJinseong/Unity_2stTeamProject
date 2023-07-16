@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerLife <= 0 ) { PlayerController.instance.Die_Motion(); }
+        if (PlayerLife == 0 ) { PlayerLife = -1; PlayerController.instance.Die_Motion(); }
     }
 
     public void SetPlayerDamage()

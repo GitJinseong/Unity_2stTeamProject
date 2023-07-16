@@ -36,7 +36,6 @@ public class PlayerBullet : MonoBehaviour
             Renderer renderer_ = collision.GetComponent<Renderer>();
             Transform transform_ = collision.GetComponent<Transform>();
             StartCoroutine(Hit(renderer_, transform_));
-            Debug.Log("몬스터 피격");
         }
     }
 }

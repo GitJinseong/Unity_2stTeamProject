@@ -15,6 +15,17 @@ public class EnemyMitterCheck : MonoBehaviour
         instance = this;
     }
 
+    void Update()
+    {
+        if (mitter <= 0) { mitter = 444; StartCoroutine(Delay()); }
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3f);
+        GFunc.LoadScene("Stage_0_LoadScene");
+    }
+
     public void Hit()
     {
         mitter--;

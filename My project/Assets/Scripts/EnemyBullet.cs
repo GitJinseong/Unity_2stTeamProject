@@ -24,7 +24,6 @@ public class EnemyBullet : MonoBehaviour
         HitEffect.instance.RunSetPlayerHitEffect(renderer, transform);
         animator.SetTrigger("Hit");
         rigid.velocity = Vector2.zero;
-        EnemyMitterCheck.instance.Hit();
         yield return new WaitForSeconds(0.4f);
         gameObject.SetActive(false);
     }
@@ -36,7 +35,7 @@ public class EnemyBullet : MonoBehaviour
             Renderer renderer_ = collision.GetComponent<Renderer>();
             Transform transform_ = collision.GetComponent<Transform>();
             StartCoroutine(Hit(renderer_, transform_));
-            Debug.Log("플레이어 피격");
+            GameManager.instance.SetPlayerDamage();
         }
     }
 }
