@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
         GFunc.Assert(animator != null);
         GFunc.Assert(playerAudio != null);
 
+        playerAudio.Play();
+        StartCoroutine(Music());
     }
 
     // Update is called once per frame
@@ -45,7 +47,6 @@ public class PlayerController : MonoBehaviour
         {
             playerRigid.velocity = Vector2.zero;
             playerRigid.AddForce(new Vector2(0, jumpForce));
-            playerAudio.Play();
         }
         else if (Input.GetMouseButtonDown(0) && 0 < playerRigid.velocity.y)
         {
@@ -67,6 +68,20 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("Ground", isGrounded);
     }
+
+    public IEnumerator Music()
+    {
+        while (true)
+        {
+            if (isDead) { break; }
+
+            yield return new WaitForSeconds(Random.Range(0,10));
+
+            playerAudio.Play();
+
+        }
+    }
+
     public IEnumerator Shoot()
     {
         yield return new WaitForSeconds(bulletDelay);

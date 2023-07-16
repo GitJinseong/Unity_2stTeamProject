@@ -14,7 +14,7 @@ public class TitleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > 5f)
+        if (Time.time > 4f)
         {
             if (Input.GetKey(KeyCode.Return))
             {
